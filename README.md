@@ -4,4 +4,4 @@ Run with :
 
 `bash`
 
-ruby messagesJsonParser.rb <messages.json_path_> <app_root_dir_path_>
+ruby messagesJsonParser.rb "messages_json_path_"" "app_root_dir_path_"
