@@ -10,6 +10,7 @@ def open_and_read_File(path = "/Users/kalwell/Desktop/Vonage_Work/mvno/src/vg-ss
 	checker = []
 	counter = 0
 	counter_two = 0
+	puts "PROCESSING REQUEST . . . . . .  .  .  .   .    .    . PROCESSING..."
 
 	File.open(path).each do |li|
 		if (li[/": "/])
@@ -19,7 +20,8 @@ def open_and_read_File(path = "/Users/kalwell/Desktop/Vonage_Work/mvno/src/vg-ss
 
 		Dir.foreach(src_dir_loc) do |item|
 			Dir.foreach(src_dir_loc + "/" + item) do |file|
-				if File.extname(file) == ".html" || File.extname(file) == ".htm"
+				#Add custom file extensions here to include files in search scope
+				if File.extname(file) == ".html" || File.extname(file) == ".htm" || File.extname(file) == ".js" || File.extname(file) == ".spec"
 					File.open(src_dir_loc + "/" + item + "/"+ file, "r") do |file_obj|
 						arry << File.read(file_obj.path)
 						arry.each do |file_specific_html_content|
@@ -48,7 +50,7 @@ def open_and_read_File(path = "/Users/kalwell/Desktop/Vonage_Work/mvno/src/vg-ss
 		puts "_____________________________________________________"
 		checker.uniq.each do |y|
 			counter += 1
-			puts counter.to_s + ". #{y}  did not return in our search, are you sure you are using it?"
+			puts counter.to_s + ".  Unused: #{y}"
 		end
 end
 
