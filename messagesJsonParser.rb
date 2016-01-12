@@ -3,7 +3,7 @@
 messages_json_file = ARGV[0]
 src_dir_loc = ARGV[1]
 
-def open_and_read_File(path, src_dir_loc)
+def open_and_read_File(path = "/Users/kalwell/Desktop/Vonage_Work/mvno/src/vg-ssu/messages.json", src_dir_loc = "/Users/kalwell/Desktop/Vonage_Work/mvno/src")
 	messages = []
 	used_messages = []
 	arry = []
@@ -20,6 +20,17 @@ def open_and_read_File(path, src_dir_loc)
 
 		Dir.foreach(src_dir_loc) do |item|
 			Dir.foreach(src_dir_loc + "/" + item) do |file|
+				if file == "test"
+					puts "PROCESSING TEST FOLDER FILES . . . . . . . .   .   .   .   ."
+					Dir.foreach(src_dir_loc + "/" + item + "/" + file) do |filetwo|
+						if File.extname(filetwo) == ".html" || File.extname(filetwo) == ".htm" || File.extname(filetwo) == ".js" || File.extname(filetwo) == ".spec"
+							File.open(src_dir_loc + "/" + item + "/" + file + "/" + filetwo) do |file_obj|
+								arry << File.read(file_obj.path)
+							end
+						end
+					end
+				end
+				puts "PROCESSING NONTEST FILES . . . . . . . . . ."
 				#Add custom file extensions here to include files in search scope
 				if File.extname(file) == ".html" || File.extname(file) == ".htm" || File.extname(file) == ".js" || File.extname(file) == ".spec"
 					File.open(src_dir_loc + "/" + item + "/"+ file, "r") do |file_obj|
