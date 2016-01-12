@@ -38,7 +38,7 @@ def open_and_read_File(path = "/Users/kalwell/Desktop/Vonage_Work/mvno/src/vg-ss
 						arry.each do |file_specific_html_content|
 							messages.each do |message|
 								message = message.gsub(/[ \"]/, "")
-								if file_specific_html_content.include?(message) && message != "title" && message != "content" && message != "header" && !used_messages.include?(message)
+								if file_specific_html_content.include?(message) && !used_messages.include?(message)
 									used_messages << message
 								end
 							end
@@ -47,6 +47,7 @@ def open_and_read_File(path = "/Users/kalwell/Desktop/Vonage_Work/mvno/src/vg-ss
 				end
 			end
 		end
+		puts "_____________________________________________________"
 		messages.each do |message|
 			message = message.gsub(/[ \"]/, "")
 			checker << message
