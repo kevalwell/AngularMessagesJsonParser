@@ -3,7 +3,7 @@
 messages_json_file = ARGV[0]
 src_dir_loc = ARGV[1]
 
-def open_and_read_File(path = "/Users/kalwell/Desktop/Vonage_Work/mvno/src/vg-ssu/messages.json", src_dir_loc = "/Users/kalwell/Desktop/Vonage_Work/mvno/src")
+def open_and_read_File(path, src_dir_loc)
 	messages = []
 	used_messages = []
 	arry = []
