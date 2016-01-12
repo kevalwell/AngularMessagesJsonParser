@@ -62,7 +62,7 @@ def open_and_read_File(path = "/Users/kalwell/Desktop/Vonage_Work/mvno/src/vg-ss
 		puts "_____________________________________________________"
 		checker.uniq.each do |y|
 			counter += 1
-			puts counter.to_s + ".  Unused: #{y}"
+			puts counter.to_s + ".  Potential  Unused: #{y}"
 		end
 end
 
