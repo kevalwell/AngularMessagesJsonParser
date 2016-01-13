@@ -11,13 +11,29 @@ def open_and_read_File(path = "/Users/kalwell/Desktop/Vonage_Work/mvno/src/vg-ss
 	counter = 0
 	counter_two = 0
 	puts "PROCESSING REQUEST . . . . . .  .  .  .   .    .    . PROCESSING..."
-
-	File.open(path).each do |li|
-		if (li[/": "/])
-			messages << li.split(':')[0]
+	##Begin collecting Json Keys
+	#For having seperate Json message files located in folders who's root is the `path` root
+	if path.split(//).last(5).join != ".json"
+		Dir.foreach(path) do |data_file|
+			File.open(data_file).each do |li|
+				if (li[/": "/])
+					messages << li.split(':')[0]
+				end
+			end
 		end
+		#Single Json file whose path is == path var passed in
+	elsif path.split(//).last(5).join == ".json"
+		File.open(path).each do |li|
+			if (li[/": "/])
+				messages << li.split(':')[0]
+			end
+		end
+	else
+		puts "Sorry, Invalid path"
 	end
-
+	
+	puts "DONE COLLECTING DATA"
+	##Begin Parsing Application content
 		Dir.foreach(src_dir_loc) do |item|
 			Dir.foreach(src_dir_loc + "/" + item) do |file|
 				if file == "test"
