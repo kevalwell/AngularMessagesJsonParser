@@ -31,8 +31,8 @@ def open_and_read_File(path = "/Users/kalwell/Desktop/Vonage_Work/mvno/src/vg-ss
 	else
 		puts "Sorry, Invalid path"
 	end
-	
-	puts "DONE COLLECTING DATA"
+
+	puts "*" * 20 + "DONE COLLECTING JSON DATA" + "*" * 20
 	##Begin Parsing Application content
 		Dir.foreach(src_dir_loc) do |item|
 			Dir.foreach(src_dir_loc + "/" + item) do |file|
