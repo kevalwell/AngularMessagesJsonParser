@@ -1,3 +1,8 @@
+#!/usr/bin/env ruby
+ 
+require 'rubygems'
+require 'json'
+
 #Run As: `bash` ruby messagesJsonParser.rb <messages.json_path_> <app_root_dir_path_>
 
 messages_json_file = ARGV[0]
